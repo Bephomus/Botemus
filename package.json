@@ -1,0 +1,22 @@
+{
+  "name": "botemus",
+  "version": "0.0.1",
+  "description": "Premier essai pour un bot",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Bephomus",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "discord.js": "^11.3.2",
+    "fs": "0.0.1-security",
+    "jquery": "^3.3.1",
+    "jsdom": "^11.11.0",
+    "opusscript": "0.0.6",
+    "request": "^2.87.0",
+    "twitch-helix-api": "^1.0.1",
+    "ytdl-core": "^0.20.4"
+  }
+}
