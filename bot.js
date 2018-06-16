@@ -151,47 +151,51 @@ function checkLive(id)
 {
 	var aServer = findServer(id);
 	var channel = bot.channels.find('id', aServer["channel"]);
-	request('https://api.twitch.tv/kraken/streams?channel='+aServer["twitch"]+'&client_id='+api.clientID, function (error, response, body) {
-		var json = JSON.parse(body);
-		
-		console.log(json);
-		if((json["_total"]>=1)&&(aServer["checked_live"]==false)&&(Date.now()-aServer["date_live"]>aServer["time_between"]))
-		{
-			var urlGame = "";
-			api.games.getGames({name: json["streams"][0]["channel"]["game"]}).then(function(data) {
-				console.log(data["response"]["data"][0]["box_art_url"]);
-				urlGame = data["response"]["data"][0]["box_art_url"];
-				urlGame = urlGame.replace("{width}",aServer['image_size']);
-				urlGame = urlGame.replace("{height}",aServer['image_size']);
-				const embed = new Discord.RichEmbed().
-					setTitle(json["streams"][0]["channel"]["game"]).
-					setAuthor(json["streams"][0]["channel"]["status"]).
-					setThumbnail(json["streams"][0]["channel"]["logo"]).
-					setURL(json["streams"][0]["channel"]["url"]).
-					setImage(urlGame);
-				aServer["checked_live"]=true;
-				aServer["date_live"] = Date.now();
-				channel.send("@everyone");
-				channel.send(embed);
-				saveModification();
-			});
+	if((channel!=undefined)&&(channel!=null))
+	{
+		request('https://api.twitch.tv/kraken/streams?channel='+aServer["twitch"]+'&client_id='+api.clientID, function (error, response, body) {
+			var json = JSON.parse(body);
 			
-		}
-		else
-		{
-			if((json["_total"]>=1)&&(aServer["checked_live"]==true))
+			console.log(json);
+			if((json["_total"]>=1)&&(aServer["checked_live"]==false)&&(Date.now()-aServer["date_live"]>aServer["time_between"]))
 			{
-				aServer["checked_live"]=true;
-				aServer["date_live"] = Date.now();
-				saveModification();	
+				var urlGame = "";
+				api.games.getGames({name: json["streams"][0]["channel"]["game"]}).then(function(data) {
+					console.log(data["response"]["data"][0]["box_art_url"]);
+					urlGame = data["response"]["data"][0]["box_art_url"];
+					urlGame = urlGame.replace("{width}",aServer['image_size']);
+					urlGame = urlGame.replace("{height}",aServer['image_size']);
+					const embed = new Discord.RichEmbed().
+						setTitle(json["streams"][0]["channel"]["game"]).
+						setAuthor(json["streams"][0]["channel"]["status"]).
+						setThumbnail(json["streams"][0]["channel"]["logo"]).
+						setURL(json["streams"][0]["channel"]["url"]).
+						setImage(urlGame);
+					aServer["checked_live"]=true;
+					aServer["date_live"] = Date.now();
+					channel.send("@everyone");
+					channel.send(embed);
+					saveModification();
+				});
+				
 			}
 			else
 			{
-				aServer["checked_live"]=false;
-				saveModification();
+				if((json["_total"]>=1)&&(aServer["checked_live"]==true))
+				{
+					aServer["checked_live"]=true;
+					aServer["date_live"] = Date.now();
+					saveModification();	
+				}
+				else
+				{
+					aServer["checked_live"]=false;
+					saveModification();
+				}
 			}
-		}
-	});
+		});
+	}
+	
 }
 
 function changeChaine(id,name)
