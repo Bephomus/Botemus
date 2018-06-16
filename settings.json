@@ -1,1 +1,24 @@
-{"servers_id":["451373692065284096"],"bot_name":"Botemus","servers":"[{\"id\":\"451373692065284096\",\"administrator\":\"420308404544864267\",\"sub_administrators\":[\"294464865261584384\"],\"image_size\":280,\"time_between\":5000,\"checked_live\":true,\"date_live\":1529177245195,\"twitch\":\"Solary\",\"channel\":\"451373692065284100\"}]"}
+{"servers_id":["451373692065284096","369072462408974336"],
+ "bot_name":"Botemus",
+ "servers":"[
+    {\"id\":\"451373692065284096\",
+    \"administrator\":\"420308404544864267\",
+    \"sub_administrators\":[\"294464865261584384\"],
+    \"image_size\":280,
+    \"time_between\":5000,
+    \"checked_live\":true,
+    \"date_live\":1529177245195,
+    \"twitch\":\"Solary\",
+    \"channel\":
+    \"451373692065284100\"},
+ {\"id\":\"369072462408974336\",
+    \"administrator\":\"187231452067397634\",
+    \"sub_administrators\":[\"420308404544864267\"],
+    \"image_size\":280,
+    \"time_between\":5000,
+    \"checked_live\":true,
+    \"date_live\":1529177245195,
+    \"twitch\":\"mynthos\",
+    \"channel\":
+    \"457647941784567809\"}]"
+}
