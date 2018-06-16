@@ -29,7 +29,7 @@ var HELP_COMMANDS_SUBADMINISTRATOR = new Object();
 	HELP_COMMANDS_SUBADMINISTRATOR["intervalle"]=" -> On change la durée pour la vérification du stream Twitch ? \n \t *exemple : "+PREFIX+" info *";
 var TEXT_COMMANDS_SUBADMINISTRATOR = "Voici ma liste de commandes pour administrateur:";
 
-api.clientID = process.env.BOT_TOKEN;
+api.clientID = process.env.TWITCH_TOKEN;
 
 var SERVERS_ID = settings["servers_id"];
 var SERVERS = JSON.parse(settings["servers"]);
@@ -200,6 +200,9 @@ function changeChaine(id,name)
 	{
 		var aServer = findServer(id);
 		aServer["twitch"] = name;
+		aServer["date_live"] = 0;
+		aServer["checked_live"] = false;
+		
 		saveModification();
 		return "La chaine twitch a été changée à "+name;
 	}
