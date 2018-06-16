@@ -383,31 +383,31 @@ bot.on("message",function(message)
 				case COMMANDS_ADMINISTRATOR[2]:
 					if(args.length>2)
 					{
-						changeChaine(message.guild.id,args[2]);
+						message.author.send(changeChaine(message.guild.id,args[2]));
 					}
 					break;
 				case COMMANDS_ADMINISTRATOR[3]:
 					if(args.length>2)
 					{
-						changeAnnonces(message.guild.id,args[2]);
+						message.author.send(changeAnnonces(message.guild.id,args[2]));
 					}
 					break;
 				case COMMANDS_ADMINISTRATOR[4]:
 					if(args.length>2)
 					{
-						changeAdministrateur(message.guild.id,args[2]);
+						message.author.send(changeAdministrateur(message.guild.id,args[2]));
 					}
 					break;
 				case COMMANDS_ADMINISTRATOR[5]:
 					if(args.length>2)
 					{
-						changeSubAdministrateur(message.guild.id,args[2]);
+						message.author.send(changeSubAdministrateur(message.guild.id,args[2]));
 					}
 					break;
 				case COMMANDS_ADMINISTRATOR[6]:
 					if(args.length>2)
 					{
-						changeIntervalle(message.guild.id,args[2]);
+						message.author.send(changeIntervalle(message.guild.id,args[2]));
 					}
 					break;
 				case COMMANDS_ADMINISTRATOR[7]:
@@ -444,24 +444,24 @@ bot.on("message",function(message)
 					case COMMANDS_SUBADMINISTRATOR[2]:
 						if(args.length>2)
 						{
-							changeChaine(message.guild.id,args[2]);
+							message.author.send(changeChaine(message.guild.id,args[2]));
 						}
 					case COMMANDS_SUBADMINISTRATOR[3]:
 						if(args.length>2)
 						{
-							changeAnnonces(message.guild.id,args[2]);
+							message.author.send(changeAnnonces(message.guild.id,args[2]));
 						}
 						break;
 					case COMMANDS_SUBADMINISTRATOR[4]:
 						if(args.length>2)
 						{
-							changeSubAdministrateur(message.guild.id,args[2]);
+							message.author.send(changeSubAdministrateur(message.guild.id,args[2]));
 						}
 						break;
 					case COMMANDS_SUBADMINISTRATOR[5]:
 						if(args.length>2)
 						{
-							changeIntervalle(message.guild.id,args[2]);
+							message.author.send(changeIntervalle(message.guild.id,args[2]));
 						}
 						break;
 					case COMMANDS_SUBADMINISTRATOR[6]:
