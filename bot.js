@@ -93,7 +93,7 @@ function saveModification()
 {
 	console.log(SERVERS_ID);
 	console.log(SERVERS);
-	var tmpData = {"token":settings["token"],
+	var tmpData = {
 		"servers_id":SERVERS_ID,
 		"bot_name":"Botemus",
 		"servers":JSON.stringify(SERVERS)
